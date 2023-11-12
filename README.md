@@ -1,6 +1,6 @@
-# dzikri7
-Dzikri
+# adrian
 
+Adrian
 
 ```sh
 go get -u all
@@ -11,3 +11,4 @@ git push origin v1.0.0                  #push tag version to repo
 GOPROXY=proxy.golang.org go list -m example.com/mymodule@v0.1.0
 go get example.com/mymodule@v0.1.0
 go list -m example.com/mymodule@v0.1.0   #publish to pkg dev, replace ORG/URL with your repo URL
+```
