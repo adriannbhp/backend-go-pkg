@@ -11,8 +11,8 @@ import (
 
 func TestCreateNewUserRole(t *testing.T) {
 	var userdata User
-	userdata.Username = "dzikri"
-	userdata.Password = "dzikri"
+	userdata.Username = "adrian"
+	userdata.Password = "adrian"
 	userdata.Role = "admin"
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	CreateNewUserRole(mconn, "user", userdata)
@@ -27,8 +27,8 @@ func TestDeleteUser(t *testing.T) {
 
 func CreateNewUserToken(t *testing.T) {
 	var userdata User
-	userdata.Username = "dzikri"
-	userdata.Password = "dzikri"
+	userdata.Username = "adrian"
+	userdata.Password = "adrian"
 	userdata.Role = "admin"
 
 	// Create a MongoDB connection
@@ -45,8 +45,8 @@ func CreateNewUserToken(t *testing.T) {
 func TestGFCPostHandlerUser(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	var userdata User
-	userdata.Username = "dzikri"
-	userdata.Password = "dzikri"
+	userdata.Username = "adrian"
+	userdata.Password = "adrian"
 	userdata.Role = "admin"
 	CreateNewUserRole(mconn, "user", userdata)
 }
@@ -55,8 +55,8 @@ func TestProduct(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	var productdata Product
 	productdata.Nomorid = 1
-	productdata.Name = "dzikri"
-	productdata.Description = "haq"
+	productdata.Name = "adrian"
+	productdata.Description = "bimo"
 	productdata.Price = 1000
 	productdata.Size = "XL"
 	productdata.Stock = 100
@@ -77,7 +77,7 @@ func TestAllProduct(t *testing.T) {
 // }
 
 func TestGeneratePasswordHash(t *testing.T) {
-	password := "dzikri"
+	password := "adrian"
 	hash, _ := HashPassword(password) // ignore error for the sake of simplicity
 
 	fmt.Println("Password:", password)
@@ -89,15 +89,15 @@ func TestGeneratePrivateKeyPaseto(t *testing.T) {
 	privateKey, publicKey := watoken.GenerateKey()
 	fmt.Println(privateKey)
 	fmt.Println(publicKey)
-	hasil, err := watoken.Encode("dzikri", privateKey)
+	hasil, err := watoken.Encode("adrian", privateKey)
 	fmt.Println(hasil, err)
 }
 
 func TestHashFunction(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	var userdata User
-	userdata.Username = "dzikri"
-	userdata.Password = "dzikri"
+	userdata.Username = "adrian"
+	userdata.Password = "adrian"
 
 	filter := bson.M{"username": userdata.Username}
 	res := atdb.GetOneDoc[User](mconn, "user", filter)
@@ -112,8 +112,8 @@ func TestHashFunction(t *testing.T) {
 func TestIsPasswordValid(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	var userdata User
-	userdata.Username = "dzikri"
-	userdata.Password = "dzikri"
+	userdata.Username = "adrian"
+	userdata.Password = "adrian"
 
 	anu := IsPasswordValid(mconn, "user", userdata)
 	fmt.Println(anu)
@@ -123,8 +123,8 @@ func CreateContent(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	var contentdata Content
 	contentdata.ID = 1
-	contentdata.Content = "dzikri"
-	contentdata.Description = "haq"
+	contentdata.Content = "adrian"
+	contentdata.Description = "bimo"
 	contentdata.Image = "https://images3.alphacoders.com/165/thumb-1920-165265.jpg"
 	CreateNewContent(mconn, "content", contentdata)
 }
@@ -132,8 +132,8 @@ func CreateContent(t *testing.T) {
 func TestUserFix(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", "petapedia")
 	var userdata User
-	userdata.Username = "dzikri"
-	userdata.Password = "dzikri"
+	userdata.Username = "adrian"
+	userdata.Password = "adrian"
 	userdata.Role = "admin"
 	CreateUser(mconn, "user", userdata)
 }
